@@ -1,5 +1,5 @@
 elixirsips-download
---
+-------
 
 _Download episodes from [Elixir Sips](http://elixirsips.com)_
 
@@ -57,7 +57,18 @@ Or list just one episode's info:
 => d.episode 1 # List just episode 1 information.
 ```
 
-## Acknowledgements
+Warning
+-------
+
+Except for a few episodes, Elixir Sips is a paid screencast series. Therefore, please
+don't redistribute the downloaded material. Elixir Sips Downloader is
+only an utility tool and doesn't substitute the subscription.
+
+You should do no evil!
+
+
+Acknowledgements
+-------
 
 If you're wondering why create yet-another-downloader, it's because [elixir-sips-downloader](https://github.com/benjamintanweihao/elixir-sips-downloader) is broken.
 
