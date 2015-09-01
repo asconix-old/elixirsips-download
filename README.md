@@ -61,7 +61,7 @@ Warning
 -------
 
 Except for a few episodes, Elixir Sips is a paid screencast series. Therefore, please
-don't redistribute the downloaded material. Elixir Sips Downloader is
+don't redistribute the downloaded material. This downloader is
 only an utility tool and doesn't substitute the subscription.
 
 You should do no evil!
