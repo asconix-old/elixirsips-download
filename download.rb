@@ -32,8 +32,8 @@ module ElixirSips
     def download_all
       prepare_auth unless @auth_prepared
 
-      episodes.each do |episode_number, _episode_info|
-        download episode
+      episodes.each do |number, _info|
+        _download(episode number)
       end
     end
 
