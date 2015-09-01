@@ -20,17 +20,18 @@ module ElixirSips
       @password   = ''
     end
 
-    # Receives number from the episode list given in `all_spisodes_titles`
+    # Receives number from the episode list given in #episodes
     def download(number)
-      login
-      @feed ||= fetch_rss_feed
-      build_episode_list
+      prepare_auth unless @auth_prepared
+
       _download(episode number)
       return true
     end
 
     # Can you guess what it does?
     def download_all
+      prepare_auth unless @auth_prepared
+
       episodes.each do |episode_number, _episode_info|
         download episode
       end
@@ -38,21 +39,32 @@ module ElixirSips
 
     # Gives list with all episodes and their names.
     def episodes
+      prepare_auth unless @auth_prepared
+
       @episodes ||= parse_episodes
     end
 
     def episode number
+      prepare_auth unless @auth_prepared
+
       return "There's only #{episodes.count} episodes" unless number.between?(0, episodes.count)
       self.episodes[number]
     end
 
     # We want it to be public in case we wanna rebuild the episode list.
     def build_episode_list
-
       parse_episodes
     end
 
     private
+
+    def prepare_auth
+      login
+      @feed ||= fetch_rss_feed
+      build_episode_list
+
+      @auth_prepared = true
+    end
 
     # Logs in Elixir Sips.
     def login
