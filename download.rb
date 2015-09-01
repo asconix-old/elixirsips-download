@@ -107,8 +107,6 @@ module ElixirSips
     # Hash:
     # { file_name: <name of the file>, file_link: <link to download the file> }
     def parse_files episode
-      files = {}
-
       begin
         document = REXML::Document.new episode.description
       rescue => e
@@ -118,9 +116,8 @@ module ElixirSips
         return
       end
 
+      files = []
       document.elements.each("/div[@class='blog-entry']/ul/li/a") do |element|
-        files = []
-
         file_name = element.text
         file_link = element.attribute('href').to_s
         files << { file_name: file_name, file_link: file_link }
@@ -148,8 +145,10 @@ module ElixirSips
       Dir.mkdir(title_dir) unless File.exists? title_dir
 
       # Download the files.
+      puts "Downloading to #{title_dir}"
       episode[:files].each do |file|
-        client.download file[:file_link], title_dir
+        puts "-- #{file[:file_name]}"
+        client.download file[:file_link], "#{title_dir}/#{file[:file_name]}"
       end
     end
   end
