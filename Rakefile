@@ -1,3 +1,7 @@
+def reload!
+  load './download.rb'
+end
+
 desc "Loads Pry console with downloader"
 task :console do
   require 'pry'
@@ -9,6 +13,10 @@ task :console do
   Pry.start
 end
 
-def reload!
+desc "Batch download all videos"
+task :batch_download do
   load './download.rb'
+
+  d = ElixirSips::Downloader.new
+  d.download_all
 end
