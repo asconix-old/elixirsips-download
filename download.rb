@@ -147,8 +147,14 @@ module ElixirSips
       # Download the files.
       puts "Downloading to #{title_dir}"
       episode[:files].each do |file|
-        puts "-- #{file[:file_name]}"
-        client.download file[:file_link], "#{title_dir}/#{file[:file_name]}"
+        file_dir = "#{title_dir}/#{file[:file_name]}"
+
+        unless File.exist? file_dir
+          puts "-- #{file[:file_name]}"
+          client.download file[:file_link], file_dir
+        else
+          puts "-- Skipping #{file[:file_name]}, it already exists."
+        end
       end
     end
   end
