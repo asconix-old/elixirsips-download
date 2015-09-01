@@ -5,21 +5,27 @@ _Download episodes from [Elixir Sips](http://elixirsips.com)_
 
 ## Project Setup
 
-First install gems:
+1. Install gems:
 
-```shell
-bundle install
-```
+    ```shell
+    bundle install
+    ```
 
-Remember to place your user and password:
+2. Remember to place your user and password:
 
-```ruby
-def initialize
-  (...)
-  @username   = '<your_username>'
-  @password   = '<your_password>'
-end
-```
+    ```ruby
+    def initialize
+      (...)
+      @username   = '<your_username>'
+      @password   = '<your_password>'
+    end
+    ```
+
+3. Start the console:
+
+    ```shell
+    rake console
+    ```
 
 ### **Then, do magic:**
 
