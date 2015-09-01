@@ -8,7 +8,7 @@ _Download episodes from [Elixir Sips](http://elixirsips.com)_
 1. Install gems:
 
     ```shell
-    bundle install
+    $ bundle install
     ```
 
 2. Remember to place your user and password:
@@ -21,27 +21,13 @@ _Download episodes from [Elixir Sips](http://elixirsips.com)_
     end
     ```
 
-3. Start the console:
+3. Fire up the console:
 
     ```shell
-    rake console
+    $ rake console
     ```
 
 ### **Then, do magic:**
-
-For just one episode:
-
-```ruby
-=> d = ElixirSips::Downloader.new
-=> d.download 1 # Download episode 1.
-```
-
-For all of them:
-
-```ruby
-=> d = ElixirSips::Downloader.new
-=> d.download_all # Download all episodes.
-```
 
 You can list episodes:
 
@@ -56,6 +42,30 @@ Or list just one episode's info:
 => d = ElixirSips::Downloader.new
 => d.episode 1 # List just episode 1 information.
 ```
+
+Then download just one episode:
+
+```ruby
+=> d = ElixirSips::Downloader.new
+=> d.download 1 # Download episode 1.
+```
+
+Or all of them:
+
+```ruby
+=> d = ElixirSips::Downloader.new
+=> d.download_all # Download all episodes.
+```
+
+You can even run it from your shell and do a batch_download:
+
+```shell
+$ nohup rake batch_download &
+$ jobs
+[1]  + running    nohup rake batch_download
+```
+
+
 
 Warning
 -------
