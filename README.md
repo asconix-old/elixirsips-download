@@ -27,7 +27,7 @@ _Download episodes from [Elixir Sips](http://elixirsips.com)_
     $ rake console
     ```
 
-### **Then, do magic:**
+### **Do magic**
 
 You can list episodes:
 
