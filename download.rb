@@ -29,8 +29,8 @@ module ElixirSips
     # @return [ElixirSip::Downloader]
     def initialize
       @client        = Mechanize.new
-      @username      = ''
-      @password      = ''
+      @username      = 'ferliagno@gmail.com'
+      @password      = 'LaVie123!'
       @auth_prepared = false
     end
 
