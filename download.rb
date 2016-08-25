@@ -170,7 +170,7 @@ module ElixirSips
 
       # Download the files.
       puts "Downloading to #{title_dir}"
-      episode[:files].each do |file|
+      (episode[:files]||[]).each do |file|
         file_dir = "#{title_dir}/#{file[:file_name]}"
 
         if not File.exist? file_dir
